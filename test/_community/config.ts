@@ -22,6 +22,18 @@ export default buildConfigWithDefaults({
           type: 'text',
         },
       ],
+      admin: {
+        components: {
+          beforeListTable: [
+            {
+              path: './ui/SampleServerComp#SampleServerComp',
+              serverProps: {
+                myProp: 'This will be successfully passed to my RSC',
+              },
+            },
+          ],
+        },
+      },
     },
   ],
   admin: {
