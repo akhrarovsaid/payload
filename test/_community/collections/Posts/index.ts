@@ -11,6 +11,7 @@ export const PostsCollection: CollectionConfig = {
     {
       name: 'title',
       type: 'text',
+      localized: true,
     },
   ],
   versions: {

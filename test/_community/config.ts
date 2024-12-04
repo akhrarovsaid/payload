@@ -19,6 +19,10 @@ export default buildConfigWithDefaults({
       baseDir: path.resolve(dirname),
     },
   },
+  localization: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr', 'es'],
+  },
   editor: lexicalEditor({}),
   globals: [
     // ...add more globals here
@@ -37,6 +41,7 @@ export default buildConfigWithDefaults({
       collection: postsSlug,
       data: {
         title: 'example post',
+        _status: 'published',
       },
     })
   },
