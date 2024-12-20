@@ -12,6 +12,12 @@ export const PostsCollection: CollectionConfig = {
       name: 'title',
       type: 'text',
     },
+    {
+      name: 'categories',
+      type: 'relationship',
+      hasMany: true,
+      relationTo: 'categories',
+    },
   ],
   versions: {
     drafts: true,
