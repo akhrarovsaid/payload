@@ -70,6 +70,8 @@ export interface UserAuthOperations {
 export interface Post {
   id: string;
   title?: string | null;
+  someText?: string | null;
+  someTextAgain?: string | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -202,6 +204,8 @@ export interface PayloadMigration {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  someText?: T;
+  someTextAgain?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;

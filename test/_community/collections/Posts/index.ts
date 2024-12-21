@@ -12,6 +12,30 @@ export const PostsCollection: CollectionConfig = {
       name: 'title',
       type: 'text',
     },
+    {
+      type: 'tabs',
+      tabs: [
+        {
+          label: ({ t }) => t('authentication:apiKey'),
+          description: ({ t }) => t('general:anotherUserTakenOver'),
+          fields: [
+            {
+              type: 'text',
+              name: 'someText',
+            },
+          ],
+        },
+        {
+          label: ({ t }) => t('authentication:account'),
+          fields: [
+            {
+              type: 'text',
+              name: 'someTextAgain',
+            },
+          ],
+        },
+      ],
+    },
   ],
   versions: {
     drafts: true,
