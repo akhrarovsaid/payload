@@ -70,6 +70,7 @@ export interface UserAuthOperations {
 export interface Post {
   id: string;
   title?: string | null;
+  images?: (string | Media)[] | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -80,6 +81,7 @@ export interface Post {
  */
 export interface Media {
   id: string;
+  alt: string;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -202,6 +204,7 @@ export interface PayloadMigration {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  images?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -211,6 +214,7 @@ export interface PostsSelect<T extends boolean = true> {
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
