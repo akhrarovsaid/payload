@@ -21,6 +21,11 @@ export const PostsCollection: CollectionConfig = {
         features: ({ defaultFeatures }) => [...defaultFeatures],
       }),
     },
+    {
+      type: 'relationship',
+      relationTo: 'users',
+      name: 'author',
+    },
   ],
   versions: {
     drafts: true,

@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import path from 'path'
 
 import { buildConfigWithDefaults } from '../buildConfigWithDefaults.js'
-import { devUser } from '../credentials.js'
+import { devUser, regularUser } from '../credentials.js'
 import { MediaCollection } from './collections/Media/index.js'
 import { PostsCollection, postsSlug } from './collections/Posts/index.js'
 import { MenuGlobal } from './globals/Menu/index.js'
@@ -33,11 +33,26 @@ export default buildConfigWithDefaults({
       },
     })
 
+    const { id: authorId } = await payload.create({
+      collection: 'users',
+      data: {
+        email: regularUser.email,
+        password: regularUser.password,
+      },
+    })
+
     await payload.create({
       collection: postsSlug,
       data: {
         title: 'example post',
+        _status: 'published',
+        author: authorId,
       },
+    })
+
+    await payload.delete({
+      collection: 'users',
+      id: authorId,
     })
   },
   typescript: {
