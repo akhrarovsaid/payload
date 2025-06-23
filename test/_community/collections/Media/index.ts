@@ -10,6 +10,7 @@ export const MediaCollection: CollectionConfig = {
   },
   fields: [],
   upload: {
+    mimeTypes: ['application/pdf'],
     crop: true,
     focalPoint: true,
     imageSizes: [
